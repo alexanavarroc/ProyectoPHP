@@ -34,14 +34,14 @@
                 <h2>Titulo</h2>
                 <p><?php echo $row["titulo"]; ?></p>
 
-                <h2>Descripcion</h2>
-                <p><?php echo $row["descripcion"]; ?></p>
+                <h2>autor</h2>
+                <p><?php echo $row["autor"]; ?></p>
 
                 <h2>Tipo</h2>
                 <p><?php echo $row["tipo"]; ?></p>
 
-                <h2>Autor</h2>
-                <p><?php echo $row["autor"]; ?></p>
+                <h2>Descripcion</h2>
+                <p><?php echo $row["descripcion"]; ?></p>
                 
                 <?php
                 }

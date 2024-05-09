@@ -28,7 +28,7 @@
             </div>
 
             <div class="form-element my-4">
-                <select name="type" id="" class="form-control">
+                <select name="tipo" id="" class="form-control">
                     <option value="">Genero de libro</option>
                     <option value="NoFiccion">NoFiccion</option>
                     <option value="Fantasia">Fantasia</option>

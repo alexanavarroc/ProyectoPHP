@@ -17,6 +17,48 @@
             </div>
         </header>
 
+        <?php
+        session_start();
+        if(isset($_SESSION["crear"])) {
+            ?>
+            <div class="alert alert-success">
+                <?php
+                echo $_SESSION["crear"];
+                unset($_SESSION["crear"]);
+                ?>
+            </div>
+            <?php
+        }
+        ?>
+
+        <?php
+        
+        if(isset($_SESSION["editar"])) {
+            ?>
+            <div class="alert alert-success">
+                <?php
+                echo $_SESSION["editar"];
+                unset($_SESSION["editar"]);
+                ?>
+            </div>
+            <?php
+        }
+        ?>
+
+        <?php
+        
+        if(isset($_SESSION["borrar"])) {
+            ?>
+            <div class="alert alert-success">
+                <?php
+                echo $_SESSION["borrar"];
+                unset($_SESSION["borrar"]);
+                ?>
+            </div>
+            <?php
+        }
+        ?>
+
         <table class="table table-bordered">
             <thead>
               <tr>
@@ -42,9 +84,9 @@
                         <td><?php echo $row["tipo"]; ?></td>
                         
                         <td>
-                            <a href="verMas.php?Id=<?php echo $row["Id"] ?>" class="btn btn-info">Leer más</a>
-                            <a href="editar.php?Id=<?php echo $row["Id"] ?>" class="btn btn-warning">Editar</a>
-                            <a href="" class="btn btn-danger">Borrar</a>
+                            <a href="verMas.php?Id=<?php echo $row["Id"]; ?>" class="btn btn-info">Leer más</a>
+                            <a href="editar.php?Id=<?php echo $row["Id"]; ?>" class="btn btn-warning">Editar</a>
+                            <a href="borrar.php?Id=<?php echo $row["Id"]; ?>" class="btn btn-danger">Borrar</a>
                         </td>
                     </tr>
                 <?php
