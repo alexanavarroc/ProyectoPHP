@@ -14,7 +14,7 @@
 
             <h1>Añadir nuevo libro 📚</h1>
             <div>
-                <a href="" class="btn btn-primary">Regresar</a>
+                <a href="index.php" class="btn btn-primary">Regresar</a>
             </div>
 
         </header>
