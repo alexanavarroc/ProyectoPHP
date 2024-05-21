@@ -1,3 +1,10 @@
+<?php
+    session_start();
+    if (isset($_SESSION[':)']) && $_SESSION[':)'] == true) {
+        header("Location: index.php");
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +16,7 @@
 </head>
 <body>
 
-    <form>
+    <form name="USUARIOS_INSERT" action="cont_login.php" method="POST">
     <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">Email</label>
         <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
