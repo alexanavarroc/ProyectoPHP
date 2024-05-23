@@ -72,8 +72,12 @@
             <tbody>
                 <?php
                 include("conexion.php");
-                $sql = "SELECT * FROM libros";
-                $resultado = mysqli_query($conn,$sql);
+                $query = "SELECT Id, titulo, autor, tipo * FROM libros";
+                $resultado = mysqli_query($conn, $query);
+
+                if(!$resultado){
+                    die("Error" . mysqli_error($conn));
+                }
 
                 while ($row = mysqli_fetch_array($resultado)) {
                 ?>

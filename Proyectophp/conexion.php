@@ -18,11 +18,11 @@
     $dbHost = "phpdatabasenavarro.mysql.database.azure.com";
     $dbUser = "alexanavarrocalderon";
     $dbPass = "pelonpelO1";
+    // $dbName = "db";
     
     // Crear una instancia de la clase mysqli para establecer la conexión
     // $conn = new mysqli($dbHost, $dbUser, $dbPass, $dbName);
     $conn = new mysqli($dbHost, $dbUser, $dbPass);
-
     
     // Verificar si la conexión fue exitosa
     if ($conn->connect_error) {
@@ -31,7 +31,6 @@
         echo "Conexión exitosa";
     }
 
-$conn->close();
     
 
 ?>
