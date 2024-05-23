@@ -16,10 +16,11 @@
             <div>
                 <a href="index.php" class="btn btn-primary">Regresar</a>
             </div>
-
         </header>
 
-        <?php
+
+
+<?php
         if (isset($_GET['Id'])) {
             $Id = $_GET['Id'];
             include("conexion.php");
