@@ -1,8 +1,8 @@
 <?php
-    session_start();
-    if (isset($_SESSION[':)']) && $_SESSION[':)'] == true) {
-        header("Location: index.php");
-    }
+    // session_start();
+    // if (isset($_SESSION[':)']) && $_SESSION[':)'] == true) {
+    //     header("Location: index.php");
+    // }
 ?>
 
 <!DOCTYPE html>
