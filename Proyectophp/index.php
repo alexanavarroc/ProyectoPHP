@@ -41,7 +41,7 @@
                 <th>Titulo</th>
                 <th>Autor</th>
                 <th>Tipo</th>
-                <th>Action</th>
+                <th>Accion</th>
               </tr>  
             </thead>
             <tbody>
@@ -49,8 +49,8 @@
                 include("conexion.php");
 
                 // Crear base de datos si no existe
-                $dbName = 'db';  // Reemplaza con el nombre de tu base de datos
-                $conn = mysqli_connect($dbHost, $dbUser, $dbPass);
+                $dbName = 'db';  // nombre de lka db
+                $conn = mysqli_connect($dbHost, $dbUser, $dbPass, $dbName);
                 if (!$conn) {
                     die("Error de conexión: " . mysqli_connect_error());
                 }
@@ -67,15 +67,25 @@
                     Id INT AUTO_INCREMENT PRIMARY KEY,
                     titulo VARCHAR(255) NOT NULL,
                     autor VARCHAR(255) NOT NULL,
-                    tipo VARCHAR(50) NOT NULL
+                    tipo VARCHAR(50) NOT NULL,
+                    descripcion VARCHAR(50) NOT NULL
                 )";
 
                 if (!mysqli_query($conn, $table_sql)) {
                     die("Error al crear la tabla: " . mysqli_error($conn));
                 }
 
+                $check_column_sql = "SHOW COLUMNS FROM libros LIKE 'descripcion'";
+                $column_result = mysqli_query($conn, $check_column_sql);
+                if (mysqli_num_rows($column_result) == 0) {
+                    $add_column_sql = "ALTER TABLE libros ADD COLUMN descripcion VARCHAR(255) NOT NULL";
+                    if (!mysqli_query($conn, $add_column_sql)) {
+                        die("Error al añadir la columna 'descripcion': " . mysqli_error($conn));
+                    }
+                }
+
                 // Obtener datos de la tabla
-                $query = "SELECT Id, titulo, autor, tipo FROM libros";
+                $query = "SELECT Id, titulo, autor, tipo, descripcion FROM libros";
                 $resultado = mysqli_query($conn, $query);
 
                 if(!$resultado){
@@ -89,6 +99,7 @@
                         <td><?php echo $row["titulo"]; ?></td>
                         <td><?php echo $row["autor"]; ?></td>
                         <td><?php echo $row["tipo"]; ?></td>
+                        <td><?php echo $row["descripcion"]; ?></td>
                         <td>
                             <a href="verMas.php?Id=<?php echo $row["Id"]; ?>" class="btn btn-info">Leer más</a>
                             <a href="editar.php?Id=<?php echo $row["Id"]; ?>" class="btn btn-warning">Editar</a>

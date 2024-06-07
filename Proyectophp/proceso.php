@@ -9,7 +9,7 @@ if (isset($_POST["crear"])) {
     $descripcion = mysqli_real_escape_string($conn, $_POST["descripcion"]);
 
     // Construir la consulta SQL
-    $sql = "INSERT INTO libros (titulo, autor, tipo, descripcion) VALUES ('$titulo', '$autor', '$tipo', '$descripcion')";
+    $sql = "INSERT INTO libros (titulo, autor, tipo, descripcion) VALUES ('".$titulo."', '".$autor."', '".$tipo."', '".$descripcion."')";
 
     // Imprimir la consulta SQL para depuración
     echo "Consulta SQL: " . $sql . "<br>";
